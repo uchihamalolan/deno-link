@@ -2,12 +2,13 @@
   "tasks": {
     "dev": "deno serve --watch --unstable-kv --env -A src/main.ts",
     "test": "deno test tests/",
-    "deploy": "deployctl deploy --project denofire",
+    "deploy": "deployctl deploy --project denolinks",
     "lint": "deno lint src",
     "fmt": "deno fmt src",
     "start": "deno serve --allow-net --allow-read --env --unstable-kv src/main.ts"
   },
   "imports": {
+    "@deno/deployctl": "jsr:@deno/deployctl",
     "@std/assert": "jsr:@std/assert@1",
     "@std/http": "jsr:@std/http@1"
   },
