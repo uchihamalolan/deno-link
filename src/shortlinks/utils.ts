@@ -1,10 +1,7 @@
 import { encodeBase64Url } from "jsr:@std/encoding";
 
 export async function generateShortCode(longUrl: string) {
-  try {
-    new URL(longUrl);
-  } catch (error) {
-    console.log(error);
+  if (!URL.canParse(longUrl)) {
     throw new Error("Invalid URL provided");
   }
 

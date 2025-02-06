@@ -1,5 +1,5 @@
-import { BASE_URL } from "../../constants.ts";
 import { Layout } from "../common/Layout.tsx";
+import { ShortLinkDetails } from "../components/ShortLinkDetails.tsx";
 import { PageProps } from "../types.ts";
 
 export function ShortlinkViewPage({ shortLink }: PageProps) {
@@ -20,46 +20,7 @@ export function ShortlinkViewPage({ shortLink }: PageProps) {
           <div className="card-body">
             <h2 className="card-title">Shortlink Details</h2>
             <div className="divider"></div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label className="label">
-                  <span className="label-text font-semibold">Short URL</span>
-                </label>
-                <a
-                  href={`/${shortLink?.shortCode}`}
-                  target="_blank"
-                  className="link link-primary"
-                >
-                  {`${BASE_URL}/${shortLink?.shortCode}`}
-                </a>
-              </div>
-
-              <div>
-                <label className="label">
-                  <span className="label-text font-semibold">Long URL</span>
-                </label>
-                <a
-                  href={shortLink?.longUrl}
-                  className="link link-primary"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {shortLink?.longUrl}
-                </a>
-              </div>
-
-              <div>
-                <label className="label">
-                  <span className="label-text font-semibold">Created At</span>
-                </label>
-                <span>
-                  {shortLink
-                    ? new Date(shortLink.createdAt).toLocaleString()
-                    : ""}
-                </span>
-              </div>
-            </div>
+            {shortLink ? <ShortLinkDetails shortLink={shortLink} /> : null}
 
             <div className="card-actions justify-end mt-6">
               <a

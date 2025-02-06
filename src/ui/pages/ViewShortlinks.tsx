@@ -1,32 +1,6 @@
-import { ShortLink } from "../../shortlinks/types.ts";
 import { Layout } from "../common/Layout.tsx";
+import { ShortLinkListItem } from "../components/ShortLinkListItem.tsx";
 import { PageProps } from "../types.ts";
-
-function ShortLinkComponent({ link }: { link: ShortLink }) {
-  return (
-    <div
-      key={link.shortCode}
-      className="card bg-base-200 hover:bg-base-300 transition-colors"
-    >
-      <div className="card-body">
-        <h3 className="card-title text-primary hover:text-primary-focus">
-          <a href={`/links/${link.shortCode}`}>{link.shortCode}</a>
-        </h3>
-        <p className="text-base-content/70 truncate">
-          {link.longUrl}
-        </p>
-        <div className="flex gap-4 text-sm text-base-content/60">
-          <span>
-            Created: {new Date(link.createdAt).toLocaleDateString()}
-          </span>
-          <div className="badge badge-primary">
-            {link.clickCount} clicks
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 export function LinksPage({ shortLinkList }: PageProps) {
   return (
@@ -36,7 +10,7 @@ export function LinksPage({ shortLinkList }: PageProps) {
           <h2 className="card-title text-2xl mb-6">Your Shortlinks</h2>
           <div className="space-y-4">
             {shortLinkList?.map((link) => (
-              link ? <ShortLinkComponent link={link} /> : null
+              link ? <ShortLinkListItem link={link} /> : null
             ))}
           </div>
           {(!shortLinkList || shortLinkList.length === 0) && (

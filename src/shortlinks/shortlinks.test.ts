@@ -1,6 +1,6 @@
 import { assertEquals, assertNotEquals, assertRejects } from "@std/assert";
 import { delay } from "jsr:@std/async/delay";
-import { generateShortCode } from "../src/db.ts";
+import { generateShortCode } from "./utils.ts";
 
 Deno.test("URL Shortener ", async (t) => {
   await t.step("should generate a short code for a valid URL", async () => {
