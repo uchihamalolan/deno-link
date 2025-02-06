@@ -12,8 +12,10 @@ import {
 } from "./shortlinks/shortlinks.ts";
 import { generateShortCode } from "./shortlinks/utils.ts";
 
-import { HomePage, NotFoundPage, UnauthorizedPage } from "./ui.tsx";
 import { CreateShortlinkPage } from "./ui/pages/CreateShortlink.tsx";
+import { HomePage } from "./ui/pages/HomePage.tsx";
+import { NotFoundPage } from "./ui/pages/NotFound.tsx";
+import { UnauthorizedPage } from "./ui/pages/Unauthorized.tsx";
 import { ShortlinkViewPage } from "./ui/pages/ViewShortlink.tsx";
 import { LinksPage } from "./ui/pages/ViewShortlinks.tsx";
 import { getUserLinks } from "./user/user.ts";
